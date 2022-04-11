@@ -1,0 +1,16 @@
+{
+  "description": "Bundle Configurator TDD kata (JS)",
+  "version": "1.0.0",
+  "directories": {
+    "lib": "src",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "coverage": "jest --coverage"
+  },
+  "devDependencies": {
+    "jest": "^27.5"
+  }
+}
