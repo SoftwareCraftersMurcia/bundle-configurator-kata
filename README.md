@@ -39,7 +39,7 @@ products (B = Bundle):
 | B1     | P1,P2       | 25 EUR       | 30 EUR         |
 | B2     | P1,P4       | 40 EUR       | 50 EUR         |
 | B3     | P3,P4       | 60 EUR       | 70 EUR         |
-| B4     | P1,P2,P3,P4 | 80 EUR       | 90 EUR         |
+| B4     | P1,P2,P3,P4 | 80 EUR       | 100 EUR        |
 | B5     | P1,P5       | 50 EUR       | 60 EUR         |
 
 ## Acceptance Criteria
@@ -60,7 +60,7 @@ The order is irrelevant (`P1,P2` === `P2,P1`)
 | P2,P1       | B1             |
 | P1,P2,P3    | B1,P3          |
 | P1,P3,P4    | P1,B3          |
-| P1,P2,P3,P4 | P1,B3          |
+| P1,P2,P3,P4 | B4             |
 | P2,P4       | P2,P4          |
 | P2,P3,P4    | P2,B3          |
 | P3,P4       | B3             |
@@ -71,10 +71,10 @@ Keep the cheapest when there are multiple possible solutions:
 
 | select   | result |
 |----------|--------|
-| P1,P2,P5 | B1,P5  |
+| P1,P2,P5 | B5,P2  |
 
-> For example: `P1,P2,P5` could result into `B1,P5`(price: 25 + 50 = 75) or `B5,P2` (price: 60 + 20 = 80);
-> therefore `B1,P5` is the cheapest and the desired solution.
+> For example: `P1,P2,P5` could result into `B1,P5`(price: 25 + 50 = 75) or `B5,P2` (price: 50 + 20 = 70);
+> therefore `B5,P2` is the cheapest and the desired solution.
 
 ## Tech hint
 
