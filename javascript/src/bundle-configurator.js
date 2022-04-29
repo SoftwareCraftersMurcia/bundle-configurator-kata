@@ -6,9 +6,13 @@ const selectProducts = (productNames) => {
   return "P1";
 };
 
-const bundleChecker = (bundle, productList) => {
-  const products = bundles[bundle];
+const bundleChecker = (bundleKey, productList) => {
+  const products = bundles[bundleKey];
   return products.every((p) => productList.includes(p));
 };
 
-module.exports = { selectProducts, bundleChecker };
+const bundlePicker = (productList) => {
+  return Object.keys(bundles).find(bundleKey => bundleChecker(bundleKey, productList)) || null;
+}
+
+module.exports = { selectProducts, bundleChecker, bundlePicker };
