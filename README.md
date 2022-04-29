@@ -48,7 +48,7 @@ products (B = Bundle):
 Given I am a customer
 When I add to my cart these products <select>
 And I go to the checkout page
-Then I will see in the <result> products
+Then I will see the <result> products
 ```
 
 The order is irrelevant (`P1,P2` === `P2,P1`)
