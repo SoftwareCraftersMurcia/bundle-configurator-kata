@@ -1,5 +1,9 @@
 const selectProducts = (productNames) => {
-    return "P1";
+  return "P1";
 };
 
-module.exports = {selectProducts};
+const bundleChecker = (productList) => {
+  return productList;
+};
+
+module.exports = { selectProducts, bundleChecker };
