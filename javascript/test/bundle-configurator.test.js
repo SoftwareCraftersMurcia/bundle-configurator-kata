@@ -8,14 +8,13 @@ describe("Bundle Configurator", function () {
 });
 
 describe("Bundle Checker", () => {
-  it("There is no bundle for [P1]", () => {
-    const actual = bundleChecker(["P1"]);
-    const expected = ["P1"];
-    expect(actual).toEqual(expected);
+  it("B1 is not in [P1]", () => {
+    const actual = bundleChecker("B1", ["P1"]);
+    expect(actual).toBe(false);
   });
-  it("should be bundle [B1] bundle for [P1,P2]", () => {
-    const actual = bundleChecker(["P1","P2"]);
-    const expected = ["B1"];
-    expect(actual).toEqual(expected);
+
+  it("B1 is in [P1,P2]", () => {
+    const actual = bundleChecker("B1", ["P1", "P2"]);
+    expect(actual).toBe(true);
   });
 });

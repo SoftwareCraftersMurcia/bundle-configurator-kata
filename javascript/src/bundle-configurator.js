@@ -1,14 +1,14 @@
 const bundles = {
-  B1: ["P1", "P2"]
+  B1: ["P1", "P2"],
 };
 
 const selectProducts = (productNames) => {
   return "P1";
 };
 
-const bundleChecker = (productList) => {
-  const bundle = Object.keys(bundles).find((key) => bundles[key].every(p => productList.includes(p)))
-  return bundle?[bundle]:productList;
+const bundleChecker = (bundle, productList) => {
+  const products = bundles[bundle];
+  return products.every((p) => productList.includes(p));
 };
 
 module.exports = { selectProducts, bundleChecker };
