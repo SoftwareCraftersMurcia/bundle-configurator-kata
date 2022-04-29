@@ -12,7 +12,12 @@ const bundleChecker = (bundleKey, productList) => {
 };
 
 const bundlePicker = (productList) => {
-  return Object.keys(bundles).find(bundleKey => bundleChecker(bundleKey, productList)) || null;
-}
+  return Object.keys(bundles).find((bundleKey) => bundleChecker(bundleKey, productList)) || null;
+};
 
-module.exports = { selectProducts, bundleChecker, bundlePicker };
+const bundleSubstractor = (bundleKey, productList) => {
+  const products = bundles[bundleKey];
+  return productList.filter((product) => !products.includes(product));
+};
+
+module.exports = { selectProducts, bundleChecker, bundlePicker, bundleSubstractor };

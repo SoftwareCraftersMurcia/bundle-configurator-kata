@@ -1,4 +1,4 @@
-const { selectProducts, bundleChecker, bundlePicker } = require("../src/bundle-configurator");
+const { selectProducts, bundleChecker, bundlePicker, bundleSubstractor } = require("../src/bundle-configurator");
 
 describe("Bundle Configurator", function () {
   it("select product P1", function () {
@@ -20,12 +20,19 @@ describe("Bundle Checker", () => {
 });
 
 describe("Bundle picker", () => {
-  it('should not find any bundle for [P1]', () => {
+  it("should not find any bundle for [P1]", () => {
     const actual = bundlePicker(["P1"]);
     expect(actual).toBe(null);
   });
-  it('should return B1 for [P1,P2]', () => {
-    const actual = bundlePicker(["P1","P2"]);
+  it("should return B1 for [P1,P2]", () => {
+    const actual = bundlePicker(["P1", "P2"]);
     expect(actual).toEqual("B1");
+  });
+});
+
+describe("Bundle substractor", () => {
+  it("returns [] if we substract B1 to [P1,P2]", () => {
+    const actual = bundleSubstractor("B1", ["P1", "P2"]);
+    expect(actual).toEqual([]);
   });
 });
